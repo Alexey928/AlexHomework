@@ -3,17 +3,17 @@ import GreetingContainer from './GreetingContainer'
 
 // types
 export type UserType = {
-    _id: any // need to fix any
-    name: any // need to fix any
+    _id: number // need to fix any V!
+    name: string // need to fix any V!
 }
 
 // уровень работы с глобальными данными
 function HW3() {
-    const [users, setUsers] = useState<Array<string>>([]) // need to fix any
+    const [users, setUsers] = useState<Array<UserType>>([]) // need to fix any V!
 
-    const addUserCallback = (name: string) => { // need to fix any
-        const newUsers = [name,...users]
-        setUsers(newUsers) // need to fix
+    const addUserCallback = (user: UserType) => { // need to fix any V!
+        const newUsers = [user,...users]
+        setUsers(newUsers)                 // need to fix V!
     }
 
     return (
@@ -25,7 +25,7 @@ function HW3() {
             <GreetingContainer users={users} addUserCallback={addUserCallback}/>
 
             <hr/>
-            {/*для личного творчества, могу проверить*/}
+            {/*для личного творчества, могу проверить  <--- как нибуть попобалуюсь ))*/}
             {/*<AlternativeGreeting/>*/}
             <hr/>
         </div>

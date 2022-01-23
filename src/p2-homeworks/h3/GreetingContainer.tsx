@@ -1,9 +1,10 @@
 import React, {ChangeEvent, useState} from 'react'
 import Greeting from './Greeting'
+import {UserType} from "./HW3";
 
 type GreetingContainerPropsType = {
-    users: Array<string>
-    addUserCallback: (user: string) => void
+    users: Array<UserType>
+    addUserCallback: (user: UserType) => void
 }
 
 
@@ -17,12 +18,14 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
     const addUser = () => {
         if (name.trim().length > 1) {
             alert(`мы добавили ${name}`);
-            addUserCallback(name)
+            addUserCallback({_id:users.length, name:name})
             setError("");
             setName("");
 
         } else {
             setError("Wot a fack!!!") //  <---- можно решить  через тернарник обвепнув цепь команд в {} но лутше написать полноценный валидатор с цензурой и проимпортить его отдельно ;)(Я Так Думаю)
+            alert("Введи коректное имя, ПОДОНОК!!")
+            setName("");
         }
 
     }
